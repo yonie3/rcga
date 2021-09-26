@@ -1,4 +1,4 @@
-name: rclone syncer
+name: rsyncer
 on: 
   schedule:
   - cron: "0 */6 * * *"
