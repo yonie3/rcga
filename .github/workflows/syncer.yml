@@ -1,11 +1,11 @@
-name: rsyncer
+name: rsync
 on: 
   schedule:
   - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
-  rclone:
+  drive-r3od-sync:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -15,4 +15,14 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync Drive:/ r3-od:/Drive-TCDSB/ -P
+        args: sync Drive:/ r3-od:/Drive/
+  drive-r3od-clean:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: rclone
+      uses: wei/rclone@v1
+      env: 
+        RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
+      with:
+       args: cleanup r3-od:/Drive
