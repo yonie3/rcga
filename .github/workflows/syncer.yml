@@ -16,6 +16,19 @@ jobs:
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
         args: sync Drive:/ r3-od:/Drive/
+        
+  mod-acthdrive-sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: rclone
+      uses: wei/rclone@v1
+      env:
+        RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
+        RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
+      with:
+        args: sync mod:/ acth-drive:/mod/
+
   drive-r3od-clean:
     runs-on: ubuntu-latest
     steps:
