@@ -12,7 +12,7 @@ jobs:
     - name: rclone
       uses: wei/rclone@v1
       env:
-        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
         args: sync Drive:/ r3-od:/Drive-TCDSB/ -P
