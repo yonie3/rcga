@@ -15,4 +15,4 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync Drive-TCDSB:/ r3-od:/Drive/ -P
+        args: sync Drive:/ r3-od:/Drive-TCDSB/ -P
