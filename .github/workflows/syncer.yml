@@ -15,7 +15,7 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync Drive:/ r3-od:/Drive/
+        args: sync dsb-drive:/ r3-od:/Drive/ --stats-one-line-date
         
   mod-acthdrive-sync:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync mod:/ acth-drive:/mod/
+        args: sync m-od:/ acth-drive:/mod/ --stats-one-line-date
 
   drive-r3od-clean:
     runs-on: ubuntu-latest
