@@ -15,7 +15,7 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync m-od:/ p1-sueice:/m-od/ --progress --stats-one-line-date
+        args: sync m-od:/ p1-sueice:/m-od/
 
   r1-od-p1-sync:
     runs-on: ubuntu-latest
@@ -27,4 +27,4 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync r1-od:/ p1-sueice:/r1-od/ --progress --stats-one-line-date
+        args: sync r1-od:/ p1-sueice:/r1-od/
