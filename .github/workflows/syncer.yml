@@ -27,4 +27,4 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: bisync r1-od:/ p1-sueice:/r1-od/
+        args: bisync r1-od:/ p1-sueice:/r1-od/ --resync
