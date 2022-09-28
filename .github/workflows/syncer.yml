@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  m-od-p1-sync:
+  sync-p13-18-backup:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -15,9 +15,9 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync m-od:/ p1-sueice:/m-od/
+        args: sync "rtcdsb:/Files 2020-2021/part 13-18" "r-transfer:/part 13-18"
 
-  r1-od-p1-sync:
+  p1-backup:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -27,4 +27,12 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
         RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
       with:
-        args: sync p1-sueice:/r1-od/ r1-od:/
+        args: sync p1-sueice:/ r-transfer:/p1-backup/
+
+  cronjob-based-github-action:
+    name: Cronjob based github action
+    runs-on: ubuntu-latest
+    steps:
+      - name: keep-actions-alive
+      - uses: actions/checkout@v2
+      - uses: gautamkrishnar/keepalive-workflow@v1
