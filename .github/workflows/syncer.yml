@@ -33,6 +33,5 @@ jobs:
     name: Cronjob based github action
     runs-on: ubuntu-latest
     steps:
-      - name: keep-actions-alive
       - uses: actions/checkout@v2
       - uses: gautamkrishnar/keepalive-workflow@v1
