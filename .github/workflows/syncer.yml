@@ -5,18 +5,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync-p13-18-backup:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: rclone
-      uses: wei/rclone@v1
-      env:
-        RCLONE_CONF: ${{ secrets.RCLONE_CONFIG }}
-        RCLONE_CONF_PASS: ${{ secrets.RCLONE_CONF_PASS }}
-      with:
-        args: sync 'rtcdsb:/Files 2020-2021/part 13-18' 'r-transfer:/part 13-18' --drive-server-side-across-configs
-
   p1-backup:
     runs-on: ubuntu-latest
     steps:
